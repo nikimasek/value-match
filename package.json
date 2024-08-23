@@ -1,0 +1,11 @@
+{
+    "name": "value-match",
+    "description": "TypeScript module for pattern matching",
+    "author": "nikimasek",
+    "type": "module",
+    "dependencies": {
+        "@types/node": "^22.1.0",
+        "tsx": "^4.16.5",
+        "typescript": "^5.5.4"
+    }
+}
