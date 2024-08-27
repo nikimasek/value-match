@@ -1,10 +1,26 @@
 # value-match
 
-minimalistic TypeScript module for pattern matching
+## Comparing values
 
-## Tuple
+To compare values, you can use the evaluation authenticity function or the value for comparison. Attention, it is not possible to use a Function, Object, or Array as a value.
 
-the comparison only works for the first level
+```
+match(value)
+    .when('x', () => 'string')
+    .when(100, () => 'number')
+    .when(Array.isArray, () => 'is array')
+    .when(o => o instanceof Map, () => 'is map')
+    .when(/^(.)/, ([_,first]) => `string start with '${first}'`)
+    .return;
+```
+
+## Comparison of structures
+
+Array (Tuple) and Object are taken as structure. For structures, only the first level can be compared, nested values ​​can only be compared as values.
+
+### Array (Tuple)
+
+Must be of equal length and all values ​​must compare positively.
 
 ```
 match(tuple)
@@ -14,32 +30,14 @@ match(tuple)
     .result;
 ```
 
-## Object
+### Object
 
-the comparison only works for the first level
+Object is compared so that it must contain template keys and have a positive comparison.
 
 ```
 match(object)
     .when({ code: 1 }, () => 'code = 1')
     .when({ code: 2 }, () => 'code = 2')
+    .when({ text: 'test' }, () => 'has text')
     .otherwise(() => 'something else')
-```
-
-## Pattern
-
-```
-match(value)
-    .when(Array.isArray, () => 'is array')
-    .when(o => o instanceof Map, () => 'is map')
-    .return;
-```
-
-## Value
-
-```
-match(value)
-    .when('x', () => 'string')
-    .when(100, () => 'number')
-    .when(/^(.)/, ([_,first]) => `string start with '${first}'`)
-    .return;
 ```
