@@ -1,11 +1,28 @@
 {
+    "private": true,
     "name": "value-match",
+    "version": "0.0.1",
     "description": "TypeScript module for pattern matching",
-    "author": "nikimasek",
     "type": "module",
-    "dependencies": {
-        "@types/node": "^22.1.0",
-        "tsx": "^4.16.5",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "author": "Dominik Mašek",
+    "license": "MIT",
+    "scripts": {
+        "prepare": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nikimasek/value-match.git"
+    },
+    "homepage": "https://github.com/nikimasek/value-match#readme",
+    "devDependencies": {
         "typescript": "^5.5.4"
-    }
+    },
+    "files": [
+        "package.json",
+        "README.md",
+        "index.js",
+        "index.d.ts"
+    ]
 }

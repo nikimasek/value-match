@@ -11,7 +11,7 @@ match(value)
     .when(Array.isArray, () => 'is array')
     .when(o => o instanceof Map, () => 'is map')
     .when(/^(.)/, ([_,first]) => `string start with '${first}'`)
-    .return;
+    .result;
 ```
 
 ## Comparison of structures
